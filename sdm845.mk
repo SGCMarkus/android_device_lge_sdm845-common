@@ -192,20 +192,6 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service
 
 # Media
-PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxCore \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
-    libOmxVdec \
-    libOmxVenc \
-    libOmxG711Enc \
-    libplatformconfig \
-    libstagefrighthw
-
-# Media
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     $(COMMON_PATH)/configs/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
