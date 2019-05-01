@@ -35,9 +35,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.fm.a2dp.conc.disabled=true \
     vendor.voice.path.for.pcm.voip=true
 
-# Battery
+# Audio - DAC
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.cutoff_voltage_mv=3400
+    persist.audio.hifi_adv_support=1 \
+    ro.config.hifi_enhance_support=1 \
+    audio.hifi_rec.normal_gain=0 \
+    audio.hifi_rec.normal_lcf=75 \
+    audio.hifi_rec.normal_lmt=0 \
+    audio.hifi_rec.concert_gain=-140 \
+    audio.hifi_rec.concert_lcf=0 \
+    audio.hifi_rec.concert_lmt=0 \
+    audio.hifi_rec.offset_gain=39
+
+# Battery
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.cutoff_voltage_mv=3400
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -72,7 +84,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Factory reset partition
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.frp.pst=/dev/block/platform/soc/1da4000.ufshc/by-name/frp
+    ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
 # HDR
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -112,13 +124,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnCdmaDevice=1
 
 # Sensors
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qti.sensors.dev_ori=true \
-    ro.qti.sensors.dpc=true \
-    ro.qti.sensors.pmd=true \
-    ro.qti.sensors.mot_detect=true \
-    ro.qti.sensors.multishake=true \
-    ro.qti.sensors.sta_detect=true
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.qti.sensors.dev_ori=true \
+#    ro.qti.sensors.dpc=true \
+#    ro.qti.sensors.pmd=true \
+#    ro.qti.sensors.mot_detect=true \
+#    ro.qti.sensors.multishake=true \
+#    ro.qti.sensors.sta_detect=true
 
 # Time daemon
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -130,8 +142,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config.extra=none
 
 # Vibration
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.immvibed.fakeandrvers=8
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.immvibed.fakeandrvers=8
 
 # Voice assistant
 PRODUCT_PROPERTY_OVERRIDES += \

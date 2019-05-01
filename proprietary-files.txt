@@ -30,10 +30,16 @@ vendor/lib/libfastrpc_utf_stub.so
 lib64/com.qualcomm.qti.ant@1.0.so
 lib/com.qualcomm.qti.ant@1.0.so
 vendor/lib64/com.qualcomm.qti.ant@1.0_vendor.so
+vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so
 vendor/lib/com.qualcomm.qti.ant@1.0_vendor.so
+vendor/lib/hw/com.qualcomm.qti.ant@1.0-impl.so
 
 # Audio
 vendor/lib64/hw/audio.primary.sdm845.so
+vendor/lib64/soundfx/libasphere.so
+vendor/lib64/soundfx/libqcbassboost.so
+vendor/lib64/soundfx/libqcvirt.so
+vendor/lib64/soundfx/libshoebox.so
 vendor/lib64/libacdb-fts.so
 vendor/lib64/libacdbloader.so
 vendor/lib64/libacdbrtac.so
@@ -45,6 +51,11 @@ vendor/lib64/libaudioparsers.so
 vendor/lib64/libqtigef.so
 vendor/lib64/libtinycompress_vendor.so
 vendor/lib/hw/audio.primary.sdm845.so
+vendor/lib/soundfx/libasphere.so
+vendor/lib/soundfx/libqcbassboost.so
+vendor/lib/soundfx/libqcreverb.so
+vendor/lib/soundfx/libqcvirt.so
+vendor/lib/soundfx/libshoebox.so
 vendor/lib/libacdb-fts.so
 vendor/lib/libacdbloader.so
 vendor/lib/libacdbrtac.so
@@ -99,6 +110,14 @@ vendor/lib/libsdsprpc.so
 
 # Charger
 vendor/bin/hvdcp_opti
+
+# Charger (LGE)
+#vendor/bin/hw/vendor.lge.hardware.charger@1.0-service
+#vendor/etc/init/vendor.lge.hardware.charger@1.0-service.rc
+#vendor/lib64/hw/vendor.lge.hardware.charger@1.0-client.so
+#vendor/lib64/vendor.lge.hardware.charger@1.0_vendor.so
+#vendor/lib/hw/vendor.lge.hardware.charger@1.0-client.so
+#vendor/lib/vendor.lge.hardware.charger@1.0_vendor.so
 
 # CNE
 etc/cne/andsfCne.xml
@@ -160,6 +179,20 @@ vendor/lib/libxml.so
 vendor/lib64/libhdr_tm.so
 vendor/lib/libhdr_tm.so
 
+# Display (LGE tune)
+#vendor/bin/hw/vendor.lge.hardware.display.tune@1.0-service
+#vendor/etc/init/vendor.lge.hardware.display.tune@1.0-service.rc
+#vendor/lib64/vendor.lge.hardware.display.tune@1.0_vendor.so
+#vendor/lib/vendor.lge.hardware.display.tune@1.0_vendor.so
+
+# Display (LGE uevent)
+#vendor/bin/hw/vendor.lge.hardware.display.uevent@1.0-service
+#vendor/etc/init/vendor.lge.hardware.display.uevent@1.0-service.rc
+#vendor/lib64/vendor.lge.hardware.display.uevent@1.0_vendor.so
+#vendor/lib64/hw/vendor.lge.hardware.display.uevent@1.0-impl.so
+#vendor/lib/vendor.lge.hardware.display.uevent@1.0_vendor.so
+#vendor/lib/hw/vendor.lge.hardware.display.uevent@1.0-impl.so
+
 # Display (SDM)
 vendor/lib64/hw/gralloc.sdm845.so
 vendor/lib64/hw/hwcomposer.sdm845.so
@@ -170,6 +203,7 @@ vendor/lib64/libgrallocutils.so
 vendor/lib64/libqseed3.so
 vendor/lib64/libsdedrm.so
 vendor/lib64/libqdMetaData.so
+vendor/lib64/libqdutils.so
 vendor/lib64/libsdm-color.so
 vendor/lib64/libsdm-diag.so
 vendor/lib64/libsdm-disp-vndapis.so
@@ -187,6 +221,7 @@ vendor/lib/libgpu_tonemapper.so
 vendor/lib/libgrallocutils.so
 vendor/lib/libqseed3.so
 vendor/lib/libqdMetaData.so
+vendor/lib/libqdutils.so
 vendor/lib/libsdedrm.so
 vendor/lib/libsdm-color.so
 vendor/lib/libsdm-diag.so
@@ -297,7 +332,9 @@ vendor/lib/libgf_algo.so
 
 # FM
 vendor/lib64/vendor.qti.hardware.fm@1.0_vendor.so
+vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib/vendor.qti.hardware.fm@1.0_vendor.so
+vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
 
 # Graphics (Adreno)
 vendor/lib64/egl/eglSubDriverAndroid.so
@@ -366,6 +403,92 @@ vendor/lib/vendor.qti.hardware.iop@2.0_vendor.so
 # IRQ balance
 vendor/bin/msm_irqbalance
 vendor/etc/msm_irqbalance.conf
+
+# LGE Accessory
+#vendor/bin/hw/vendor.lge.hardware.accessory@1.0-service
+#vendor/etc/init/vendor.lge.hardware.accessory@1.0-service.rc
+#vendor/lib64/hw/vendor.lge.hardware.accessory@1.0-impl.so
+#vendor/lib64/vendor.lge.hardware.accessory@1.0_vendor.so
+#vendor/lib/hw/vendor.lge.hardware.accessory@1.0-impl.so
+#vendor/lib/vendor.lge.hardware.accessory@1.0_vendor.so
+
+# LGE Battery
+#vendor/bin/hw/vendor.lge.hardware.battery@1.0-service
+#vendor/etc/init/vendor.lge.hardware.battery@1.0-service.rc
+#vendor/lib64/vendor.lge.hardware.battery@1.0_vendor.so
+#vendor/lib/vendor.lge.hardware.battery@1.0_vendor.so
+
+# LGE brightness
+#vendor/bin/hw/vendor.lge.hardware.display.brightness@1.0-service
+#vendor/etc/init/vendor.lge.hardware.display.brightness@1.0-service.rc
+#vendor/lib64/vendor.lge.hardware.display.brightness@1.0_vendor.so
+#vendor/lib/vendor.lge.hardware.display.brightness@1.0_vendor.so
+
+# LGE ftm
+#vendor/bin/hw/vendor.lge.hardware.ftmitem@1.0-service
+#vendor/etc/init/vendor.lge.hardware.ftmitem@1.0-service.rc
+#vendor/lib64/hw/vendor.lge.hardware.ftmitem@1.0-impl.so
+#vendor/lib64/vendor.lge.hardware.ftmitem@1.0_vendor.so
+#vendor/lib/hw/vendor.lge.hardware.ftmitem@1.0-impl.so
+#vendor/lib/vendor.lge.hardware.ftmitem@1.0_vendor.so
+
+# LGE lpwg
+#vendor/bin/hw/vendor.lge.hardware.lpwg@1.0-service
+#vendor/etc/init/vendor.lge.hardware.lpwg@1.0-service.rc
+#vendor/lib64/hw/vendor.lge.hardware.lpwg@1.0-impl.so
+#vendor/lib64/vendor.lge.hardware.lpwg@1.0_vendor.so
+#vendor/lib/hw/vendor.lge.hardware.lpwg@1.0-impl.so
+#vendor/lib/vendor.lge.hardware.lpwg@1.0_vendor.so
+
+# LGE mme
+#vendor/bin/hw/vendor.lge.hardware.payment.mme@1.0-service
+#vendor/etc/init/vendor.lge.hardware.payment.mme@1.0-service.rc
+#vendor/lib64/hw/vendor.lge.hardware.payment.mme@1.0-impl.so
+#vendor/lib64/vendor.lge.hardware.payment.mme@1.0_vendor.so
+#vendor/lib/hw/vendor.lge.hardware.payment.mme@1.0-impl.so
+#vendor/lib/vendor.lge.hardware.payment.mme@1.0_vendor.so
+
+# LGE Sdcardtray
+#vendor/bin/hw/vendor.lge.hardware.sdcardtray@1.0-service
+#vendor/etc/init/vendor.lge.hardware.sdcardtray@1.0-service.rc
+#vendor/lib64/hw/vendor.lge.hardware.sdcardtray@1.0-impl.so
+#vendor/lib64/vendor.lge.hardware.sdcardtray@1.0_vendor.so
+#vendor/lib/hw/vendor.lge.hardware.sdcardtray@1.0-impl.so
+#vendor/lib/vendor.lge.hardware.sdcardtray@1.0_vendor.so
+
+# LGE Securefuse
+vendor/bin/hw/vendor.lge.hardware.securefuse@1.0-service
+vendor/etc/init/vendor.lge.hardware.securefuse@1.0-service.rc
+vendor/lib64/vendor.lge.hardware.securefuse@1.0_vendor.so
+vendor/lib/vendor.lge.hardware.securefuse@1.0_vendor.so
+
+# LGE Storageinfo
+#vendor/bin/hw/vendor.lge.hardware.storageinfo@1.0-service
+#vendor/etc/init/vendor.lge.hardware.storageinfo@1.0-service.rc
+#vendor/lib64/hw/vendor.lge.hardware.storageinfo@1.0-impl.so
+#vendor/lib64/vendor.lge.hardware.storageinfo@1.0_vendor.so
+#vendor/lib/hw/vendor.lge.hardware.storageinfo@1.0-impl.so
+#vendor/lib/vendor.lge.hardware.storageinfo@1.0_vendor.so
+
+# Light
+#lib64/lib64/android.hardware.light@2.0.so
+#lib/lib64/android.hardware.light@2.0.so
+vendor/bin/hw/android.hardware.light@2.0-service
+vendor/etc/init/android.hardware.light@2.0-service.rc
+vendor/lib64/hw/android.hardware.light@2.0-impl.so
+vendor/lib64/hw/lights.sdm845.so
+vendor/lib/hw/android.hardware.light@2.0-impl.so
+vendor/lib/hw/lights.sdm845.so
+
+# Light (LGE)
+#lib64/vendor.lge.hardware.light@1.0.so
+#lib/vendor.lge.hardware.light@1.0.so
+#vendor/bin/hw/vendor.lge.hardware.light@1.0-service
+#vendor/etc/init/vendor.lge.hardware.light@1.0-service.rc
+#vendor/lib64/hw/vendor.lge.hardware.light@1.0-impl.so
+#vendor/lib64/vendor.lge.hardware.light@1.0_vendor.so
+#vendor/lib/hw/vendor.lge.hardware.light@1.0-impl.so
+#vendor/lib/vendor.lge.hardware.light@1.0_vendor.so
 
 # Media
 lib64/libFileMux.so
@@ -438,12 +561,14 @@ vendor/lib/libOmxWmaDec.so
 
 # Listen
 vendor/lib64/hw/sound_trigger.primary.sdm845.so
+vendor/lib64/vendor.qti.voiceprint@1.0.so
 vendor/lib64/libgcs-calwrapper.so
 vendor/lib64/libgcs-ipc.so
 vendor/lib64/libgcs-osal.so
 vendor/lib64/libgcs.so
 vendor/lib64/libmulawdec.so
 vendor/lib/hw/sound_trigger.primary.sdm845.so
+vendor/lib/vendor.qti.voiceprint@1.0.so
 vendor/lib/libadpcmdec.so
 vendor/lib/libgcs-calwrapper.so
 vendor/lib/libgcs-ipc.so
@@ -476,12 +601,14 @@ vendor/etc/perf/perf-profile4.conf
 vendor/etc/perf/perf-profile5.conf
 vendor/etc/perf/perf-profile6.conf
 vendor/etc/powerhint.xml
+vendor/lib64/hw/power.sdm845.so
 vendor/lib64/libfeedbackhandler.so
 vendor/lib64/libperfgluelayer.so
 vendor/lib64/libqti-perfd-client.so
 vendor/lib64/libqti-perfd.so
 vendor/lib64/libqti-util.so
 vendor/lib64/vendor.qti.hardware.perf@1.0_vendor.so
+vendor/lib/hw/power.sdm845.so
 vendor/lib/libfeedbackhandler.so
 vendor/lib/libperfgluelayer.so
 vendor/lib/libqti-perfd-client.so
@@ -683,14 +810,24 @@ vendor/lib/libsns_low_lat_stream_stub.so
 vendor/lib/libsnsdiaglog.so
 vendor/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
 
+# Sensor (LGE)
+#vendor/bin/hw/vendor.lge.hardware.sensortest@1.0-service
+#vendor/etc/init/vendor.lge.hardware.sensortest@1.0-service.rc
+#vendor/lib64/hw/vendor.lge.hardware.sensortest@1.0-impl.so
+#vendor/lib64/vendor.lge.hardware.sensortest@1.0_vendor.so
+#vendor/lib64/libsensor_lge_cal.so
+#vendor/lib/hw/vendor.lge.hardware.sensortest@1.0-impl.so
+#vendor/lib/vendor.lge.hardware.sensortest@1.0_vendor.so
+#vendor/lib/libsensor_lge_cal.so
+
 # Soter
 vendor/bin/SoterProvisioningTool
-vendor/lib/libkeymasterutils.so
-vendor/lib/libkeymasterprovision.so
-vendor/lib/libkeymasterdeviceutils.so
-vendor/lib64/libkeymasterutils.so
-vendor/lib64/libkeymasterprovision.so
-vendor/lib64/libkeymasterdeviceutils.so
+#vendor/lib/libkeymasterutils.so
+#vendor/lib/libkeymasterprovision.so
+#vendor/lib/libkeymasterdeviceutils.so
+#vendor/lib64/libkeymasterutils.so
+#vendor/lib64/libkeymasterprovision.so
+#vendor/lib64/libkeymasterdeviceutils.so
 
 # SSR
 vendor/bin/ssr_diag
@@ -741,14 +878,34 @@ vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0_vendor.so
 vendor/lib/vendor.qti.hardware.tui_comm@1.0_vendor.so
 
+# USB (LGE)
+lib64/vendor.lge.hardware.usb@1.0.so
+lib/vendor.lge.hardware.usb@1.0.so
+vendor/bin/hw/vendor.lge.hardware.usb@1.0-service
+vendor/etc/init/vendor.lge.hardware.usb@1.0-service.rc
+vendor/lib64/hw/vendor.lge.hardware.usb@1.0-impl.so
+vendor/lib64/hw/vendor.lge.hardware.usb.uevent@1.0-impl.so
+vendor/lib64/vendor.lge.hardware.usb@1.0_vendor.so
+vendor/lib64/vendor.lge.hardware.usb.uevent@1.0_vendor.so
+vendor/lib/hw/vendor.lge.hardware.usb@1.0-impl.so
+vendor/lib/hw/vendor.lge.hardware.usb.uevent@1.0-impl.so
+vendor/lib/vendor.lge.hardware.usb@1.0_vendor.so
+vendor/lib/vendor.lge.hardware.usb.uevent@1.0_vendor.so
+
 # Vibrator
 vendor/bin/immvibed|1dc0ad4637dbdbd5718093791cb6312babcd817c
 vendor/bin/hw/vendor.lge.hardware.vibrator@1.0-service-immersion|5760a3edebeeb1309959d15435bfefa4850c5c09
 vendor/etc/init/vendor.lge.hardware.vibrator@1.0-service-immersion.rc|84897a5ac2ea07f91ce26f1d5e843a6c74f97c7e
 vendor/lib64/hw/vendor.lge.hardware.vibrator@1.0-impl-immersion.so|ed73d863ffdb2f97920ddc6eff17612e9b62668e
+vendor/lib64/hw/vibrator.default.so|d131e79c508a291f00c9381724df56ad05d3a94a
 vendor/lib64/vendor.lge.hardware.vibrator@1.0.so|9fd889a9d486a6a45f00c7b22f0c74a0ce86da31
 vendor/lib/hw/vendor.lge.hardware.vibrator@1.0-impl-immersion.so|6b62990c27fbd139da4db606cf1eb7a6cd654577
+vendor/lib/hw/vibrator.default.so|f5578f77b423c21ccc512625015e097c306a4b92
 vendor/lib/vendor.lge.hardware.vibrator@1.0.so|9b91f2add8f94837d57949eae57499fbd02eaa7f
+
+# VR
+vendor/lib64/hw/vr.sdm845.so
+vendor/lib/hw/vr.sdm845.so
 
 # Widevine DRM
 vendor/bin/hw/android.hardware.drm@1.0-service.widevine
@@ -820,8 +977,25 @@ lib64/libwfduibcsinkinterface.so
 lib64/libwfduibcsrc.so
 lib64/libwfduibcsrcinterface.so
 lib64/libwfd_remoteif.so
+vendor/lib/libDxHdcp.so
+vendor/lib/libmm-hdcpmgr.so
 vendor/lib/libwfdmmservice.so
 vendor/lib/libwfdcommonutils_proprietary.so
+vendor/lib/libwfdhaldsmanager.so
+vendor/lib/libwfdhdcpcp.so
+vendor/lib/libwfdmodulehdcpsession.so
+vendor/lib64/libDxHdcp.so
+vendor/lib64/libmm-hdcpmgr.so
 vendor/lib64/libwfdmmservice.so
 vendor/lib64/libwfdcommonutils_proprietary.so
+vendor/lib64/libwfdhaldsmanager.so
+vendor/lib64/libwfdhdcpcp.so
+vendor/lib64/libwfdmodulehdcpsession.so
+vendor/etc/init/com.qualcomm.qti.wifidisplayhal@1.0-service.rc
+vendor/lib64/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so
+vendor/lib64/com.qualcomm.qti.wifidisplayhal@1.0-impl.so
+vendor/lib64/com.qualcomm.qti.wifidisplayhal@1.0_vendor.so
+vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-halimpl.so
+vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0-impl.so
+vendor/lib/com.qualcomm.qti.wifidisplayhal@1.0_vendor.so
 -app/WfdService/WfdService.apk
