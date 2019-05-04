@@ -683,6 +683,8 @@ etc/sysconfig/qti_whitelist.xml
 framework/qcrilhook.jar
 framework/QtiTelephonyServicelibrary.jar
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+lib/vendor.lge.hardware.radio@1.0.so
+lib64/vendor.lge.hardware.radio@1.0.so
 vendor/lib/vendor.lge.hardware.radio@1.0_vendor.so
 vendor/lib64/vendor.lge.hardware.radio@1.0_vendor.so
 vendor/bin/hw/rild

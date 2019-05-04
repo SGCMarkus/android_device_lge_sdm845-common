@@ -25,17 +25,21 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(COMMON_PATH)/overlay-lineage
 
 # Properties
--include $(COMMON_PATH)/common_props.mk
+-include $(COMMON_PATH)/system_prop.mk
+-include $(COMMON_PATH)/vendor_prop.mk
 
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := 560dpi
 PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
+# Additional native libraries
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
 # AID/fs configs
 PRODUCT_PACKAGES += \
     fs_config_files
-
 
 # A/B
 AB_OTA_UPDATER := true
@@ -98,8 +102,19 @@ TARGET_SCREEN_HEIGHT := 3120
 TARGET_SCREEN_WIDTH := 1440
 
 # Boot control
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl \
+    android.hardware.boot@1.0-service \
+    bootctrl.sdm845 \
+
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
+
+PRODUCT_STATIC_BOOT_CONTROL_HAL := \
+    bootctrl.sdm845 \
+    libcutils \
+    libgptutils \
+    libz
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -139,7 +154,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service
+    android.hardware.biometrics.fingerprint@2.1
 
 # FM packages
 PRODUCT_PACKAGES += \
@@ -197,9 +212,9 @@ PRODUCT_PACKAGES += \
     IPACM_cfg.xml
 
 # Keymaster HAL
-#PRODUCT_PACKAGES += \
-#    android.hardware.keymaster@3.0-impl \
-#    android.hardware.keymaster@3.0-service
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-service
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -280,6 +295,9 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.0-service \
     power.sdm845
 
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+
 # QTI
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml \
@@ -334,12 +352,6 @@ PRODUCT_PACKAGES += \
     update_engine_sideload \
     update_verifier
 
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.sdm845 \
-    libcutils \
-    libgptutils \
-    libz
-
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
@@ -351,6 +363,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
+
+# VNDK
+# libicuuc: vendor.qti.hardware.qteeconnector@1.0-impl
+# libstdc++: com.lge.node.capturebokeh.so
+# libgui: vendor.qti.hardware.qdutils_disp@1.0-service-qti
+PRODUCT_PACKAGES += \
+    libicuuc.vendor \
+    libstdc++.vendor \
+    libgui.vendor \
+    vndk_package
 
 # VR
 PRODUCT_PACKAGES += \
