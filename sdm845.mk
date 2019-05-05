@@ -72,7 +72,6 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@2.0-impl \
     android.hardware.audio.effect@4.0-impl \
     android.hardware.soundtrigger@2.1-impl \
-    audio.a2dp.default \
     audio.r_submix.default \
     audio.usb.default \
     libqcompostprocbundle \
@@ -96,6 +95,11 @@ PRODUCT_COPY_FILES += \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_audio_policy_configuration.xml \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/r_submix_audio_policy_configuration.xml \
     $(TOPDIR)frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0 \
+    libbt-vendor
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 3120
@@ -145,12 +149,13 @@ PRODUCT_PACKAGES += \
     libdrm.vendor \
     libtinyxml \
     libvulkan \
-    vendor.display.config@1.0
+#    vendor.display.config@1.0
 
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service
+    android.hardware.drm@1.0-service \
+    android.hardware.drm@1.1-service.clearkey
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -245,16 +250,16 @@ PRODUCT_PACKAGES += \
     Tag
 
 # OMX
-PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxCore \
-    libOmxEvrcEnc \
-    libOmxQcelp13Enc \
-    libOmxVdec \
-    libOmxVenc \
-    libstagefrighthw
+#PRODUCT_PACKAGES += \
+#    libc2dcolorconvert \
+#    libOmxAacEnc \
+#    libOmxAmrEnc \
+#    libOmxCore \
+#    libOmxEvrcEnc \
+#    libOmxQcelp13Enc \
+#    libOmxVdec \
+#    libOmxVenc \
+#    libstagefrighthw
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -368,11 +373,11 @@ PRODUCT_PACKAGES += \
 # libicuuc: vendor.qti.hardware.qteeconnector@1.0-impl
 # libstdc++: com.lge.node.capturebokeh.so
 # libgui: vendor.qti.hardware.qdutils_disp@1.0-service-qti
-PRODUCT_PACKAGES += \
-    libicuuc.vendor \
-    libstdc++.vendor \
-    libgui.vendor \
-    vndk_package
+#PRODUCT_PACKAGES += \
+#    libicuuc.vendor \
+#    libstdc++.vendor \
+#    libgui.vendor \
+#    vndk_package
 
 # VR
 PRODUCT_PACKAGES += \

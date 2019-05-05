@@ -49,7 +49,7 @@ while [ "$1" != "" ]; do
 done
 
 if [ -z "$SRC" ]; then
-    SRC=/home/markus/V40/system
+    SRC=/home/markus/G7/extracteddz/
 fi
 
 # Initialize the helper

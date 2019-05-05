@@ -7,14 +7,14 @@
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
     audio.deep_buffer.media=true \
-    audio.offload.video=true \
+    audio.offload.video=false \
     persist.vendor.audio.fluence.speaker=true \
     persist.vendor.audio.fluence.voicecall=true \
     persist.vendor.audio.fluence.voicerec=false \
     persist.vendor.audio.ras.enabled=false \
-    ro.vendor.audio.sdk.fluencetype=fluencepro \
+    ro.vendor.audio.sdk.fluencetype=none \
     ro.vendor.audio.sdk.ssr=false \
-    vendor.audio_hal.period_size=192 \
+    vendor.audio_hal.period_size=480 \
     vendor.audio.dolby.ds2.enabled=false \
     vendor.audio.dolby.ds2.hardbypass=false \
     vendor.audio.flac.sw.decoder.24bit=true \
@@ -28,12 +28,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.offload.pstimeout.secs=3 \
     vendor.audio.offload.track.enable=true \
     vendor.audio.parser.ip.buffer.size=262144 \
-    vendor.audio.safx.pbe.enabled=true \
+    vendor.audio.safx.pbe.enabled=false \
     vendor.audio.tunnel.encode=false \
     vendor.audio.use.sw.alac.decoder=true \
     vendor.audio.use.sw.ape.decoder=true \
     vendor.fm.a2dp.conc.disabled=true \
-    vendor.voice.path.for.pcm.voip=true
+    vendor.voice.path.for.pcm.voip=false
 
 # Audio - DAC
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -50,32 +50,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.chip.vendor=qcom \
-    persist.service.avrcp.browsing=1 \
-    persist.service.bdroid.a2dp_con=0 \
-    persist.service.bdroid.scms_t=0 \
-    persist.bt.max.hs.connections=2 \
-    bt.max.hfpclient.connections=1 \
-    persist.bt.a2dp.aac_disable=true \
-    persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac \
+    persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac \
     vendor.qcom.bluetooth.soc=cherokee \
-    qcom.bluetooth.soc=cherokee \
-    ro.bluetooth.a4wp=false
+    vendor.bluetooth.soc=cherokee \
+    qcom.bluetooth.soc=cherokee
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.camera2=true \
-    persist.camera.expose.aux=1 \
-    persist.camera.is_type=3 \
-    persist.camera.max.previewfps=60 \
-    vidc.enc.dcvs.extra-buff-count=2
+    persist.camera.expose.aux=1
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.hw=1 \
     dev.pm.dyn_samplingrate=1 \
-    sdm.debug.disable_partial_split=1 \
     ro.opengles.version=196610 \
-    ro.qualcomm.cabl=2 \
     ro.sf.lcd_density=480
 
 # Factory reset partition
@@ -88,7 +75,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.nfc.smartcard.config=SIM1,eSE1 \
     ro.nfc.port=I2C
 
 # Perf
@@ -100,42 +86,24 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.cne.feature=1 \
     persist.dpm.feature=0 \
     persist.data.df.dev_name=rmnet_usb0 \
-    persist.data.df.iwlan_mux=9 \
-    persist.data.iwlan.enable=true \
     persist.data.mode=concurrent \
-    persist.data.netmgrd.qos.enable=true \
-    persist.radio.VT_CAM_INTERFACE=2 \
-    persist.radio.VT_ENABLE=1 \
-    persist.radio.VT_HYBRID_ENABLE=1 \
     persist.radio.apm_sim_not_pwdn=1 \
+    persist.vendor.radio.apm_sim_not_pwdn=1 \
     persist.vendor.radio.custom_ecc=1 \
-    persist.radio.data_con_rprt=true \
     persist.vendor.radio.rat_on=combine \
     persist.vendor.radio.sib16_support=1 \
-    persist.rmnet.data.enable=true \
     rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
     ril.subscription.types=NV,RUIM \
     ro.telephony.default_network=10 \
     ro.use_data_netmgrd=true \
+    ro.vendor.use_data_netmgrd=true \
     telephony.lteOnCdmaDevice=1
-
-# Sensors
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    ro.qti.sensors.dev_ori=true \
-#    ro.qti.sensors.dpc=true \
-#    ro.qti.sensors.pmd=true \
-#    ro.qti.sensors.mot_detect=true \
-#    ro.qti.sensors.multishake=true \
-#    ro.qti.sensors.sta_detect=true
-
-# Time daemon
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    persist.delta_time.enable=true
 
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
-    sys.usb.ffs.aio_compat=1 \
-    persist.sys.usb.config.extra=none
+    persist.sys.usb.config.extra=none \
+#    sys.usb.ffs.aio_compat=1 \
+
 
 # Vibration
 #PRODUCT_PROPERTY_OVERRIDES += \
