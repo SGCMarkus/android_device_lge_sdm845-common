@@ -70,6 +70,30 @@ vendor/lib/libcsd-client.so
 vendor/lib/libqtigef.so
 vendor/lib/libtinycompress_vendor.so
 
+# Audio HAL
+#vendor/bin/hw/android.hardware.audio@2.0-service
+#vendor/etc/init/android.hardware.audio@2.0-service.rc
+#vendor/lib64/hw/android.hardware.audio@2.0-impl.so
+#vendor/lib64/hw/android.hardware.audio@4.0-impl.so
+#vendor/lib/hw/android.hardware.audio@2.0-impl.so
+#vendor/lib/hw/android.hardware.audio@4.0-impl.so
+#vendor/lib64/hw/android.hardware.audio.effect@2.0-impl.so
+#vendor/lib64/hw/android.hardware.audio.effect@4.0-impl.so
+#vendor/lib/hw/android.hardware.audio.effect@2.0-impl.so
+#vendor/lib/hw/android.hardware.audio.effect@4.0-impl.so
+#vendor/lib/hw/android.hardware.soundtrigger@2.1-impl.so
+#vendor/lib64/hw/audio.r_submix.default.so
+#vendor/lib/hw/audio.r_submix.default.so
+#vendor/lib64/hw/audio.usb.default.so
+#vendor/lib/hw/audio.usb.default.so
+#vendor/lib64/soundfx/libqcompostprocbundle.so
+#vendor/lib/soundfx/libqcompostprocbundle.so
+#vendor/lib64/soundfx/libqcomvisualizer.so
+#vendor/lib/soundfx/libqcomvisualizer.so
+#vendor/lib64/soundfx/libqcomvoiceprocessing.so
+#vendor/lib/soundfx/libqcomvoiceprocessing.so
+
+
 # Audio FX modules
 etc/permissions/audiosphere.xml
 framework/audiosphere.jar
