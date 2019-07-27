@@ -5,6 +5,3 @@ libfastcvopt.so
 liblistenjni.so
 liblistensoundmodel2.so
 libOpenCL.so
-libqvrservice_client.so
-libvraudio_client.so
-libqvrcamera_client.so

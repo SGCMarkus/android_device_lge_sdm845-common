@@ -99,19 +99,29 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.use_data_netmgrd=true \
     telephony.lteOnCdmaDevice=1
 
+# Sensors
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.debug.sensors.daemon=d \
+    persist.vendor.debug.sensors.hal=d \
+    persist.vendor.sensors.diag_buffer_mode=false
+
+# Sensors (Sar)
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.lge.sar_keeponoff=on \
+    persist.vendor.lge.sar_dependmode=on \
+    persist.vendor.lge.sar_fakestatus=off 
+
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config.extra=none \
-#    sys.usb.ffs.aio_compat=1 \
-
+    persist.sys.usb.config.extra=none
 
 # Vibration
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.immvibed.fakeandrvers=8
 
 # VNDK
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.vndk.version=28
+#PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+#    ro.vndk.version=28
 
 # Voice assistant
 PRODUCT_PROPERTY_OVERRIDES += \
