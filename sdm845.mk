@@ -37,7 +37,8 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += $(COMMON_PATH)/overlay-lineage/lineage-
 -include $(COMMON_PATH)/system_prop.mk
 -include $(COMMON_PATH)/vendor_prop.mk
 
-	
+-include frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk
+
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # AAPT
@@ -158,9 +159,13 @@ PRODUCT_PACKAGES += \
 # Display
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.allocator@1.0-service \
+    vendor.lineage.livedisplay@2.0 \
+    android.hardware.graphics.allocator@3.0 \
+    android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.3-impl \
     android.hardware.graphics.composer@2.3-service \
     android.hardware.graphics.mapper@2.0-impl-qti-display  \
+    android.hardware.graphics.mapper@3.0 \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
     gralloc.sdm845 \
@@ -259,7 +264,8 @@ PRODUCT_PACKAGES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.1-service \
+    android.hardware.nfc@1.2-service \
+    android.hardware.secure_element@1.1-service \
     com.android.nfc_extras \
     NfcNci \
     SecureElement \
@@ -402,6 +408,10 @@ PRODUCT_PACKAGES += \
     libdisplayconfig \
     libnl \
     libqdMetaData.system
+
+# Key Handler
+PRODUCT_PACKAGES += \
+    KeyHandler
 
 #PRODUCT_BOOT_JARS += \
 #    WfdCommon
