@@ -52,6 +52,7 @@ AUDIO_FEATURE_ENABLED_HDMI_SPK := true
 AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
 # USE_CUSTOM_AUDIO_POLICY := 1
 USE_XML_AUDIO_POLICY_CONF := 1
+AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
@@ -112,7 +113,8 @@ TARGET_INIT_VENDOR_LIB := libinit_lge_sdm845
 TARGET_RECOVERY_DEVICE_MODULES := libinit_lge_sdm845
 
 # Kernel
-BOARD_KERNEL_CMDLINE := video=vfb:640x400,bpp=32,memsize=3072000
+BOARD_KERNEL_CMDLINE := androidboot.hardware=judy
+BOARD_KERNEL_CMDLINE += video=vfb:640x400,bpp=32,memsize=3072000
 BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237 ehci-hcd.park=3
 BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 service_locator.enable=1
 BOARD_KERNEL_CMDLINE += swiotlb=2048 androidboot.configfs=true
