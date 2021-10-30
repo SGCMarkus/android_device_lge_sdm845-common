@@ -78,7 +78,7 @@ start() {
       nr_multi_zram=4
     ;;
 
-    "sdm845" | "msmnile" | "sm6150")
+    "sdm845" | "msmnile")
       sz_zram=$(( memtotal_kb / 4 ))
       sz_zram0=$(( memtotal_kb / 4 ))
       compr_zram=lz4
@@ -91,6 +91,19 @@ start() {
         # increase watermark about 2%
         echo 200 > /proc/sys/vm/watermark_scale_factor
       fi
+    ;;
+
+    "sm6150")
+      sz_zram=$(( memtotal_kb / 2 ))
+      compr_zram=lz4
+      nr_multi_zram=4
+      zram_async=1
+      max_write_threads=4
+
+      # increase watermark about 2%
+      echo 200 > /proc/sys/vm/watermark_scale_factor
+
+      deny_minfree_change=1
     ;;
 
     "kona")
@@ -110,8 +123,13 @@ start() {
 	;;
 
     "lito")
-      # use zram0 only for hswap feature
-      sz_zram=$(( memtotal_kb / 2 ))
+      # use zram0 (50% of memtotal) only for hswap feature
+      # set 3GB zram size for the over 8GB DDR model
+      if [ $memtotal_kb -gt 6291456 ] ; then
+        sz_zram=3145728
+      else
+        sz_zram=$(( memtotal_kb / 2 ))
+      fi
       compr_zram=lz4
       nr_multi_zram=4
       # increase watermark about 2%
@@ -119,7 +137,23 @@ start() {
       echo 200 > /proc/sys/vm/watermark_scale_factor
     ;;
 
-    *)
+     "lahaina")
+      # use zram0 (50% of memtotal) only for hswap feature
+      # set 3GB zram size for the over 8GB DDR model
+      if [ $memtotal_kb -gt 6291456 ] ; then
+        sz_zram=3145728
+      else
+        sz_zram=$(( memtotal_kb / 2 ))
+      fi
+      compr_zram=lz4
+      nr_multi_zram=4
+      # WMARK_LOW / WMARK_HIGH gap control, use QC default value
+      echo 30 > /proc/sys/vm/watermark_scale_factor
+      # disable watermark boost feature
+      echo 0 > /proc/sys/vm/watermark_boost_factor
+	;;
+
+   *)
       sz_zram=$(( memtotal_kb / 4 / ${nr_zramdev} ))
     ;;
   esac

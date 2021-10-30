@@ -149,7 +149,9 @@ PRODUCT_PACKAGES += \
     liba2dpoffload \
     libbthost_if \
     vendor.qti.hardware.bluetooth_audio@2.0.vendor \
-    vendor.qti.hardware.btconfigstore@1.0.vendor
+    vendor.qti.hardware.bluetooth_audio@2.1.vendor \
+    vendor.qti.hardware.btconfigstore@1.0.vendor \
+    vendor.qti.hardware.btconfigstore@2.0.vendor
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 3120
@@ -164,7 +166,8 @@ PRODUCT_PACKAGES += \
 
 # Component overrides
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
+    $(COMMON_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml \
+    $(COMMON_PATH)/configs/component-overrides_qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/component-overrides.xml
 
 # Context Hub
 PRODUCT_PACKAGES += \
@@ -179,15 +182,18 @@ PRODUCT_PACKAGES += \
 # Display
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.display.allocator@1.0-service \
-    android.hardware.graphics.composer@2.2-impl \
-    android.hardware.graphics.composer@2.2-service \
+    android.hardware.graphics.composer@2.3-impl \
+    android.hardware.graphics.composer@2.3-service \
     android.hardware.graphics.mapper@2.0-impl-qti-display  \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
     gralloc.sdm845 \
     hwcomposer.sdm845 \
     memtrack.sdm845 \
-    vendor.display.config@1.9 \
+    vendor.display.config@1.14 \
+    vendor.display.config@1.14.vendor \
+    vendor.display.config@2.0 \
+    vendor.display.config@2.0.vendor \
     libtinyxml \
     libvulkan
 
@@ -197,8 +203,6 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service \
     android.hardware.drm@1.3-service.clearkey
 
 # Fingerprint
@@ -213,7 +217,7 @@ PRODUCT_PACKAGES += \
 	qcom.fmradio \
 	qcom.fmradio.xml
 
-#PRODUCT_BOOT_JARS += qcom.fmradio
+PRODUCT_BOOT_JARS += qcom.fmradio
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -226,8 +230,8 @@ PRODUCT_PACKAGES += \
 
 # Health
 PRODUCT_PACKAGES += \
-    android.hardware.health@2.0-impl \
-    android.hardware.health@2.0-service
+    android.hardware.health@2.1-impl-qti \
+    android.hardware.health@2.1-service
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -246,6 +250,8 @@ PRODUCT_COPY_FILES += \
 
 # Init
 PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/rootdir/etc/fstab.hardware:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(DEVICE_NAME) \
+    $(COMMON_PATH)/rootdir/etc/init.hardware.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(DEVICE_NAME).rc \
     $(COMMON_PATH)/rootdir/etc/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
 
 $(foreach f,$(wildcard $(COMMON_PATH)/rootdir/etc/init/hw/*.rc),\
@@ -276,6 +282,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     $(COMMON_PATH)/configs/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    $(COMMON_PATH)/configs/media_codecs_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor.xml \
     $(COMMON_PATH)/configs/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml \
     $(COMMON_PATH)/configs/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
     $(COMMON_PATH)/configs/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
@@ -304,7 +311,8 @@ PRODUCT_PACKAGES += \
     NfcNci \
     SecureElement \
     Tag \
-    vendor.nxp.nxpnfc@1.0
+    vendor.nxp.nxpese@1.0.vendor:64 \
+    vendor.nxp.nxpnfc@1.0.vendor:64
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -358,7 +366,8 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti
+    android.hardware.power-service-qti \
+    vendor.qti.hardware.perf@2.2.vendor
 
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
@@ -372,7 +381,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libjson \
     libqti_vndfwk_detect \
-    libqti_vndfwk_detect.vendor
+    libqti_vndfwk_detect.vendor \
+	libavservices_minijail \
+	libavservices_minijail.vendor
 
 # QTI
 PRODUCT_COPY_FILES += \
@@ -442,12 +453,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.2-service.lge
-
-# VR
-PRODUCT_PACKAGES += \
-    android.hardware.vr@1.0-impl \
-    android.hardware.vr@1.0-service
+    android.hardware.vibrator@1.3-service.lge
 
 # WiFi
 PRODUCT_PACKAGES += \
@@ -465,13 +471,3 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
     $(COMMON_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
-# WiFi Display
-PRODUCT_PACKAGES += \
-    libdisplayconfig \
-    libdisplayconfig.vendor \
-    libnl \
-    libqdMetaData \
-    libqdMetaData.system
-
-PRODUCT_BOOT_JARS += \
-    WfdCommon

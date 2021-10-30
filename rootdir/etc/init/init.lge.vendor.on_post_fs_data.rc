@@ -20,7 +20,7 @@ on post-fs-data
     mkdir /mnt/vendor/persist-lg/rct 0771 root root
 
     #Kill-Switch
-    mkdir /vendor/persist-lg/mms 0770 system system
+#    mkdir /vendor/persist-lg/mms 0770 system vendor_lgmms
 
     #MM Proxy
     mkdir /vendor/persist-lg/mmoprt 0771 system system
@@ -112,3 +112,6 @@ on post-fs-data
 
     #Create factory for key attestation provisoning
     mkdir /data/vendor/km 0770 system system
+
+    #Create ots data file
+    mkdir /data/vendor/ots 0775 system system
