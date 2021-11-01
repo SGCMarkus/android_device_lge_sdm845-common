@@ -124,7 +124,9 @@ vendor.display.enable_default_color_mode=1
 debug.egl.hw=0
 debug.sf.hw=0
 debug.sf.latch_unsignaled=1
-persist.sys.sf.native_mode=0 
+persist.sys.sf.native_mode=0
+ro.hardware.egl=adreno
+ro.hardware.vulkan=adreno
 
 # DPM
 persist.vendor.dpm.feature=0
