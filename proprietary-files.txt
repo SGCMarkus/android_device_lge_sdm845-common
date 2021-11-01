@@ -29,7 +29,8 @@ vendor/lib/hw/com.dsi.ant@1.0-impl.so
 vendor/lib64/com.dsi.ant@1.0.so
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so
 
-# Audio
+# Audio - pinned from flashlmdd - V500EM30a
+vendor/lib/hw/audio.primary.sdm845.so|ab1b06316126c8283d89f4a19caa9db1a1b9f26f
 vendor/lib/btaudio_offload_if.so
 vendor/lib/liba2dpoffload.so
 vendor/lib/libacdb-fts.so
@@ -51,6 +52,7 @@ vendor/lib/libqtigef.so
 vendor/lib/libsndmonitor.so
 vendor/lib/libspkrprot.so
 vendor/lib/libsurround_3mic_proc.so
+vendor/lib64/hw/audio.primary.sdm845.so|8b613f10ed77ffc14a4077f42b5dd0ff24535d6a
 vendor/lib64/btaudio_offload_if.so
 vendor/lib64/liba2dpoffload.so
 vendor/lib64/libacdb-fts.so
